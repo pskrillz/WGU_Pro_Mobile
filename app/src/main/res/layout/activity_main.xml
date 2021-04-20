@@ -5,14 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:backgroundTint="#00BCD4"
+    android:backgroundTint="#2196F3"
     tools:context=".MainActivity">
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Welcome to WGU Pro!"
+        android:text="@string/welcome_to_wgu_pro"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         android:textStyle="bold"
