@@ -8,16 +8,11 @@ import java.util.Date;
 
 @Entity(tableName = "Term Table")
 public class Term {
-    @PrimaryKey(autoGenerate = true)
-    private int termId;
-    @ColumnInfo(name = "Term Name")
-    private String termName;
-    @ColumnInfo(name = "Term Status")
-    private String termStatus;
-    @ColumnInfo(name = "Term Start")
-    private Date termStart;
-    @ColumnInfo(name = "Term End")
-    private Date termEnd;
+    @PrimaryKey(autoGenerate = true) private int termId;
+    @ColumnInfo(name = "Term Name") private String termName;
+    @ColumnInfo(name = "Term Status") private String termStatus;
+    @ColumnInfo(name = "Term Start") private Date termStart;
+    @ColumnInfo(name = "Term End") private Date termEnd;
 
     public int getTermId() {
         return termId;
