@@ -9,11 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.WGUPro">
-        <activity
-            android:name=".TermList"
-            android:label="@string/title_activity_term_list"
-            android:theme="@style/Theme.WGUPro.NoActionBar"></activity>
-        <activity android:name=".MainActivity">
+        <activity android:name=".Activities.TermList"></activity>
+        <activity android:name=".Activities.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
