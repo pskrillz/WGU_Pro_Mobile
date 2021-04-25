@@ -16,7 +16,11 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // getSupportActionBar().setTitle("WGU Pro");
+        getSupportActionBar().hide();
         setContentView(R.layout.activity_main);
+
+
 
         enterBtn = (Button) findViewById(R.id.enterBtn);
 
