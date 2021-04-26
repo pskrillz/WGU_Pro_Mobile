@@ -22,6 +22,14 @@ public class Note {
     @ColumnInfo() private String noteTitle;
     @ColumnInfo() private String noteContent;
 
+    public int getNoteId() {
+        return noteId;
+    }
+
+    public void setNoteId(int noteId) {
+        this.noteId = noteId;
+    }
+
     public int getCourseIdFK() {
         return courseIdFK;
     }

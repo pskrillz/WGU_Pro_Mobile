@@ -13,7 +13,7 @@ import static androidx.room.ForeignKey.CASCADE;
         tableName = "Course Table",
         foreignKeys = @ForeignKey(
                 entity = Term.class,
-                parentColumns = "termIdPK",
+                parentColumns = "termId",
                 childColumns = "termIdFK",
                 onDelete = CASCADE
         )
@@ -28,7 +28,7 @@ public class Course {
     @ColumnInfo() private boolean courseAlert;
 
     // getters
-    public int getCourseId() {
+    public int getCourseIdPK() {
         return courseIdPK;
     }
 
@@ -52,10 +52,11 @@ public class Course {
         return courseStatus;
     }
 
-    // setters
-    public void setCourseId(int courseId) {
-        this.courseIdPK = courseId;
+    public boolean isCourseAlert() {
+        return courseAlert;
     }
+
+    // setters
 
     public void setTermIdFK(int termIdFK) {
         this.termIdFK = termIdFK;
@@ -75,5 +76,13 @@ public class Course {
 
     public void setCourseStatus(String courseStatus) {
         this.courseStatus = courseStatus;
+    }
+
+    public void setCourseIdPK(int courseIdPK) {
+        this.courseIdPK = courseIdPK;
+    }
+
+    public void setCourseAlert(boolean courseAlert) {
+        this.courseAlert = courseAlert;
     }
 }

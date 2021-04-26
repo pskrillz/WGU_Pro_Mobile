@@ -27,4 +27,60 @@ public class Assessment {
     @ColumnInfo() private Date assessmentStart;
     @ColumnInfo() private Date assessmentEnd;
     @ColumnInfo() private boolean assessmentAlert;
+
+    public int getAssessmentId() {
+        return assessmentId;
+    }
+
+    public int getCourseIdFK() {
+        return courseIdFK;
+    }
+
+    public String getAssessmentType() {
+        return assessmentType;
+    }
+
+    public String getAssessmentTitle() {
+        return assessmentTitle;
+    }
+
+    public Date getAssessmentStart() {
+        return assessmentStart;
+    }
+
+    public Date getAssessmentEnd() {
+        return assessmentEnd;
+    }
+
+    public boolean isAssessmentAlert() {
+        return assessmentAlert;
+    }
+
+    public void setAssessmentId(int assessmentId) {
+        this.assessmentId = assessmentId;
+    }
+
+    public void setCourseIdFK(int courseIdFK) {
+        this.courseIdFK = courseIdFK;
+    }
+
+    public void setAssessmentType(String assessmentType) {
+        this.assessmentType = assessmentType;
+    }
+
+    public void setAssessmentTitle(String assessmentTitle) {
+        this.assessmentTitle = assessmentTitle;
+    }
+
+    public void setAssessmentStart(Date assessmentStart) {
+        this.assessmentStart = assessmentStart;
+    }
+
+    public void setAssessmentEnd(Date assessmentEnd) {
+        this.assessmentEnd = assessmentEnd;
+    }
+
+    public void setAssessmentAlert(boolean assessmentAlert) {
+        this.assessmentAlert = assessmentAlert;
+    }
 }
