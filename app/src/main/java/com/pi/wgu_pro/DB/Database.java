@@ -21,7 +21,7 @@ public  abstract class Database extends RoomDatabase {
     private static String name = "wguPro.db";
     private static Database instance;
 
-    public static Database getInstance(Context ctx){
+    public static synchronized Database getInstance(Context ctx){
         if (instance == null) {
             instance = Room.databaseBuilder(ctx.getApplicationContext(),
                     Database.class, name)
@@ -31,5 +31,8 @@ public  abstract class Database extends RoomDatabase {
         return instance;
     }
 
+    public static void destroyInstance(){
+        instance = null;
+    }
 
 }
