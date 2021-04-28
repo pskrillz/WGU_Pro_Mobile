@@ -16,6 +16,7 @@ import com.pi.wgu_pro.R;
 import java.util.ArrayList;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
+    private static final String TAG = "TermAdapter";
 
     private ArrayList<String> termTitles = new ArrayList<>();
     private Context ctx;
@@ -30,7 +31,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.term_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
-        return null;
+        return viewHolder;
     }
 
     @Override
@@ -50,7 +51,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return 0;
+        return termTitles.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

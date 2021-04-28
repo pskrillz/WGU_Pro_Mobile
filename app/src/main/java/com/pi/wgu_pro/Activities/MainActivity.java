@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        enterBtn = (Button) findViewById(R.id.enterBtn);
+        enterBtn = findViewById(R.id.enterBtn);
 
 /**
  * Setting up event handler for button click to switch activity.
