@@ -10,9 +10,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.pi.wgu_pro.Adapters.TermAdapter;
+import com.pi.wgu_pro.DB.Database;
+import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TermList extends AppCompatActivity {
     private static final String TAG = "TermList";
@@ -23,23 +26,29 @@ public class TermList extends AppCompatActivity {
 
     // vars
     private ArrayList<String> termTitles = new ArrayList<>();
+    private List<Term> termList;
+    private Database db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         System.out.println("On Create for term's list Started");
-
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_term_list);
         getSupportActionBar().setTitle("Terms List");
+        db = Database.getInstance(getApplicationContext());
 
         // sample data
         termTitles.add("asdfgsaf");
         termTitles.add("assdaf 2");
 
-        fabAddTerm = findViewById(R.id.fabAddTerm);
+        // different list attempt
+        termList = db.termDao().getAllTerms();
+        System.out.println(termList);
+
 
        initRecyclerView();
 
+       fabAddTerm = findViewById(R.id.fabAddTerm);
        fabAddTerm.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
@@ -52,7 +61,7 @@ public class TermList extends AppCompatActivity {
 
     private void initRecyclerView(){
         RecyclerView rv = findViewById(R.id.rvTerms);
-        TermAdapter adapter = new TermAdapter(termTitles, this);
+        TermAdapter adapter = new TermAdapter(termList, this);
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }

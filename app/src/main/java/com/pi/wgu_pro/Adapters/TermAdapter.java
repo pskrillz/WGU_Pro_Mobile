@@ -11,18 +11,21 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     private static final String TAG = "TermAdapter";
 
     private ArrayList<String> termTitles = new ArrayList<>();
+    private List<Term> termList;
     private Context ctx;
 
-    public TermAdapter(ArrayList<String> termTitles, Context ctx) {
-        this.termTitles = termTitles;
+    public TermAdapter(List<Term> termList, Context ctx) {
+        this.termList = termList;
         this.ctx = ctx;
     }
 
@@ -36,12 +39,12 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.termTitle.setText(termTitles.get(position));
+        holder.termTitle.setText(termList.get(position).getTermName());
 
         holder.parentLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("test", "onClick: " + termTitles.get(position));
+                Log.d("test", "onClick: " + termList.get(position));
 
                 // TODO: trigger the form for new term info.
             }
@@ -51,7 +54,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return termTitles.size();
+        return termList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
