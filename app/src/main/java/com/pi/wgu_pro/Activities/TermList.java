@@ -1,6 +1,8 @@
 package com.pi.wgu_pro.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -30,10 +32,22 @@ public class TermList extends AppCompatActivity {
         setContentView(R.layout.activity_term_list);
         getSupportActionBar().setTitle("Terms List");
 
+        // sample data
         termTitles.add("asdfgsaf");
         termTitles.add("assdaf 2");
 
+        fabAddTerm = findViewById(R.id.fabAddTerm);
+
        initRecyclerView();
+
+       fabAddTerm.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent = new Intent(v.getContext(), AddTerm.class);
+               startActivity(intent);
+           }
+       });
+
     }
 
     private void initRecyclerView(){

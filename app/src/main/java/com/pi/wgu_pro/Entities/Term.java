@@ -6,13 +6,13 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "Term Table")
+@Entity(tableName = "TermTable")
 public class Term {
     @PrimaryKey(autoGenerate = true) private int termId;
-    @ColumnInfo(name = "Term Name") private String termName;
-    @ColumnInfo(name = "Term Status") private String termStatus;
-    @ColumnInfo(name = "Term Start") private Date termStart;
-    @ColumnInfo(name = "Term End") private Date termEnd;
+    @ColumnInfo(name = "TermName") private String termName;
+    @ColumnInfo(name = "TermStatus") private String termStatus;
+    @ColumnInfo(name = "TermStart") private Date termStart;
+    @ColumnInfo(name = "TermEnd") private Date termEnd;
 
     public int getTermId() {
         return termId;
@@ -52,5 +52,10 @@ public class Term {
 
     public void setTermEnd(Date termEnd) {
         this.termEnd = termEnd;
+    }
+
+    @Override
+    public String toString() {
+        return this.getTermName();
     }
 }
