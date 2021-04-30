@@ -2,6 +2,7 @@ package com.pi.wgu_pro.Entities;
 
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -13,6 +14,28 @@ public class Term {
     @ColumnInfo(name = "TermStatus") private String termStatus;
     @ColumnInfo(name = "TermStart") private Date termStart;
     @ColumnInfo(name = "TermEnd") private Date termEnd;
+
+
+    public Term(int termId, String termName, String termStatus, Date termStart, Date termEnd) {
+        this.termId = termId;
+        this.termName = termName;
+        this.termStatus = termStatus;
+        this.termStart = termStart;
+        this.termEnd = termEnd;
+    }
+
+    //overloaded with no id
+    @Ignore
+    public Term(String termName, String termStatus, Date termStart, Date termEnd) {
+        this.termName = termName;
+        this.termStatus = termStatus;
+        this.termStart = termStart;
+        this.termEnd = termEnd;
+    }
+
+    public Term(){
+
+    }
 
     public int getTermId() {
         return termId;

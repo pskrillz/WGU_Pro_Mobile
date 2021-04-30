@@ -5,8 +5,8 @@
     <!-- Strings used for fragments for navigation -->
 
     <string-array name="term_status_array">
-    <item>In-Progress</item>
-    <item>Completed</item>
-    <item>Not Enrolled</item>
+        <item>In-Progress</item>
+        <item>Completed</item>
+        <item>Not Enrolled</item>
     </string-array>
 </resources>

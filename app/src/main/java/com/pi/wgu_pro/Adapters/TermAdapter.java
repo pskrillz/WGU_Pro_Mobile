@@ -1,6 +1,7 @@
 package com.pi.wgu_pro.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,16 +12,17 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pi.wgu_pro.Activities.TermDetails;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 
-import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     private static final String TAG = "TermAdapter";
 
-    private ArrayList<String> termTitles = new ArrayList<>();
+   // private ArrayList<String> termTitles = new ArrayList<>();
     private List<Term> termList;
     private Context ctx;
 
@@ -41,13 +43,26 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.termTitle.setText(termList.get(position).getTermName());
 
-        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Log.d("test", "onClick: " + termList.get(position));
+        holder.parentLayout.setOnClickListener(v -> {
+            Log.d("test", "onClick: " + termList.get(position));
 
-                // TODO: trigger the form for new term info.
-            }
+            // TODO: trigger the form for new term info.
+            int termId = termList.get(position).getTermId();
+            String termTitle = termList.get(position).getTermName();
+            String termStatus = termList.get(position).getTermStatus();
+            Date start = termList.get(position).getTermStart();
+            Date end = termList.get(position).getTermEnd();
+            Term term = new Term(termId, termTitle, termStatus, start, end);
+
+            Intent intent = new Intent(this.ctx, TermDetails.class);
+            intent.putExtra("termId", term.getTermId());
+            intent.putExtra(termTitle, term.getTermName());
+            intent.putExtra(termStatus, term.getTermStatus());
+            intent.putExtra(String.valueOf(start), term.getTermStart());
+            intent.putExtra(String.valueOf(end), term.getTermEnd());
+            this.ctx.startActivity(intent);
+
+
         });
 
     }

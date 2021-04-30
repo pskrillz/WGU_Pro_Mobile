@@ -14,7 +14,6 @@ import com.pi.wgu_pro.DB.Database;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class TermList extends AppCompatActivity {
@@ -25,7 +24,7 @@ public class TermList extends AppCompatActivity {
     private RecyclerView rvTerms;
 
     // vars
-    private ArrayList<String> termTitles = new ArrayList<>();
+//    private ArrayList<String> termTitles = new ArrayList<>();
     private List<Term> termList;
     private Database db;
 
@@ -37,9 +36,9 @@ public class TermList extends AppCompatActivity {
         getSupportActionBar().setTitle("Terms List");
         db = Database.getInstance(getApplicationContext());
 
-        // sample data
-        termTitles.add("asdfgsaf");
-        termTitles.add("assdaf 2");
+//        // sample data
+//        termTitles.add("asdfgsaf");
+//        termTitles.add("assdaf 2");
 
         // different list attempt
         termList = db.termDao().getAllTerms();
@@ -48,7 +47,7 @@ public class TermList extends AppCompatActivity {
 
        initRecyclerView();
 
-       fabAddTerm = findViewById(R.id.fabAddTerm);
+       fabAddTerm = findViewById(R.id.tdAddCourse);
        fabAddTerm.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
