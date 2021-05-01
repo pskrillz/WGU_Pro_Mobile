@@ -47,12 +47,12 @@ public class TermDetails extends AppCompatActivity {
         coursesList = db.courseDao().getTermCourses(termId);
 
         // view elements
-        tdTitle = findViewById(R.id.tdTitle);
+        tdTitle = findViewById(R.id.cdTitle);
         tdStatus = findViewById(R.id.tdStatus);
         tdStart = findViewById(R.id.tdStart);
         tdEnd = findViewById(R.id.tdEnd);
         tdAddCourse = findViewById(R.id.tdAddCourse);
-        rv = findViewById(R.id.rvCourseList);
+        rv = findViewById(R.id.rvAssessList);
 
         // init
         setupSpecTermDetails();

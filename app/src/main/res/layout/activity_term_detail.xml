@@ -51,7 +51,7 @@ android:fillViewport="true">
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
-        android:id="@+id/tdTitle"
+        android:id="@+id/cdTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="18dp"
@@ -109,7 +109,7 @@ android:fillViewport="true">
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvCourseList"
+        android:id="@+id/rvAssessList"
         android:layout_width="409dp"
         android:layout_height="364dp"
         android:layout_marginTop="14dp"

@@ -12,5 +12,14 @@ public class CourseDetails extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_course_details);
-    }
-}
+        getSupportActionBar().setTitle("Course Details");
+    } // onCreate end
+
+
+
+
+
+
+
+    
+}// class end
