@@ -17,11 +17,14 @@ import com.pi.wgu_pro.R;
 import java.util.List;
 
 public class TermDetails extends AppCompatActivity {
+    // vars
     Intent intent;
     Database db;
     int termId;
-    FloatingActionButton tdAddCourse;
     List<Course> coursesList;
+
+    // view elements
+    FloatingActionButton tdAddCourse;
     RecyclerView rvCourseList;
     TextView tdTitle;
     TextView tdStatus;
@@ -35,14 +38,19 @@ public class TermDetails extends AppCompatActivity {
         setContentView(R.layout.activity_term_detail);
         getSupportActionBar().setTitle("Term Details");
 
+        // vars
         intent = getIntent();
         termId = intent.getIntExtra("termId", -1);
         db = Database.getInstance(getApplicationContext());
+
+        // view elements
         tdTitle = findViewById(R.id.tdTitle);
         tdStatus = findViewById(R.id.tdStatus);
         tdStart = findViewById(R.id.tdStart);
         tdEnd = findViewById(R.id.tdEnd);
+        tdAddCourse = findViewById(R.id.tdAddCourse);
 
+        // init
         setupSpecTermDetails();
         // updateCourseRv()
 
