@@ -56,10 +56,10 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
             Intent intent = new Intent(this.ctx, TermDetails.class);
             intent.putExtra("termId", term.getTermId());
-            intent.putExtra(termTitle, term.getTermName());
-            intent.putExtra(termStatus, term.getTermStatus());
-            intent.putExtra(String.valueOf(start), term.getTermStart());
-            intent.putExtra(String.valueOf(end), term.getTermEnd());
+            intent.putExtra("termTitle", term.getTermName());
+            intent.putExtra("termStatus", term.getTermStatus());
+            intent.putExtra("start", term.getTermStart());
+            intent.putExtra("end", term.getTermEnd());
             this.ctx.startActivity(intent);
 
 

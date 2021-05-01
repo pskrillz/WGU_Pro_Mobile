@@ -2,6 +2,7 @@ package com.pi.wgu_pro.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.format.DateFormat;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,8 +39,18 @@ public class TermDetails extends AppCompatActivity {
         termId = intent.getIntExtra("termId", -1);
         db = Database.getInstance(getApplicationContext());
         tdTitle = findViewById(R.id.tdTitle);
+        tdStatus = findViewById(R.id.tdStatus);
+        tdStart = findViewById(R.id.tdStart);
+        tdEnd = findViewById(R.id.tdEnd);
 
         setupSpecTermDetails();
+        // updateCourseRv()
+
+        tdAddCourse.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), AddCourse.class);
+            intent.putExtra("termId", termId);
+            startActivity(intent);
+        });
 
     }
 
@@ -47,7 +58,14 @@ public class TermDetails extends AppCompatActivity {
         Term term = new Term();
         term = db.termDao().getSpecTerm(termId);
         String title = term.getTermName();
+        String startDate = DateFormat.format("MM/dd/yyyy", term.getTermStart()).toString();
+        String endDate = DateFormat.format("MM/dd/yyyy", term.getTermEnd()).toString();
 
         tdTitle.setText(title);
+        tdStatus.setText(term.getTermStatus());
+        tdStart.setText(startDate);
+        tdEnd.setText(endDate);
+
+
     }
 }
