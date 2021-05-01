@@ -10,7 +10,7 @@ import java.util.Date;
 import static androidx.room.ForeignKey.CASCADE;
 
 @Entity(
-        tableName = "Course Table",
+        tableName = "tableCourse",
         foreignKeys = @ForeignKey(
                 entity = Term.class,
                 parentColumns = "termId",

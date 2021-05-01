@@ -13,7 +13,7 @@ import com.pi.wgu_pro.Entities.Note;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.Utils.DateConverter;
 
-@androidx.room.Database(version = 1, exportSchema = false,
+@androidx.room.Database(version = 5, exportSchema = false,
         entities = {Assessment.class, Course.class, CourseInstructor.class, Note.class, Term.class})
 @TypeConverters({DateConverter.class})
 public  abstract class Database extends RoomDatabase {
@@ -26,6 +26,7 @@ public  abstract class Database extends RoomDatabase {
             instance = Room.databaseBuilder(ctx.getApplicationContext(),
                     Database.class, name)
                     .allowMainThreadQueries()
+                    .fallbackToDestructiveMigration()
                     .build();
         }
         return instance;

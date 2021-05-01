@@ -1,6 +1,5 @@
 package com.pi.wgu_pro.DB;
 
-import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -10,15 +9,13 @@ import com.pi.wgu_pro.Entities.Term;
 
 import java.util.List;
 
-@Dao
-public interface TermDao {
+public interface CourseDao {
 
-    // get all
-    @Query("select * from tableTerm")
+    @Query("select * from AssessmentTable")
     List<Term> getAllTerms();
 
     //get specific
-    @Query("select * from tableTerm where termId = :termId")
+    @Query("select * from TermTable where termId = :termId")
     Term getSpecTerm(int termId);
 
     // add term/save
@@ -32,6 +29,4 @@ public interface TermDao {
     // delete
     @Delete
     void deleteTerm(Term term);
-
-
 }

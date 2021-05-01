@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 
 import java.util.Date;
 
-@Entity(tableName = "TermTable")
+@Entity(tableName = "tableTerm")
 public class Term {
     @PrimaryKey(autoGenerate = true) private int termId;
     @ColumnInfo(name = "TermName") private String termName;
