@@ -85,7 +85,7 @@ public class AddTerm extends AppCompatActivity implements DatePickerDialog.OnDat
             }
         });
 
-    } // end class
+    } // end onCreate
 
 
 

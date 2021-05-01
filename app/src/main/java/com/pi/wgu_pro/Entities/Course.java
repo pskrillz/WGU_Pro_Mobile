@@ -27,6 +27,29 @@ public class Course {
     @ColumnInfo() private String courseStatus;
     @ColumnInfo() private boolean courseAlert;
 
+    public Course(int courseIdPK, int termIdFK, String courseName, Date courseStart, Date courseEnd, String courseStatus, boolean courseAlert) {
+        this.courseIdPK = courseIdPK;
+        this.termIdFK = termIdFK;
+        this.courseName = courseName;
+        this.courseStart = courseStart;
+        this.courseEnd = courseEnd;
+        this.courseStatus = courseStatus;
+        this.courseAlert = courseAlert;
+    }
+
+    public Course(int termIdFK, String courseName, Date courseStart, Date courseEnd, String courseStatus, boolean courseAlert) {
+        this.termIdFK = termIdFK;
+        this.courseName = courseName;
+        this.courseStart = courseStart;
+        this.courseEnd = courseEnd;
+        this.courseStatus = courseStatus;
+        this.courseAlert = courseAlert;
+    }
+
+    public Course(){
+
+    }
+
     // getters
     public int getCourseIdPK() {
         return courseIdPK;

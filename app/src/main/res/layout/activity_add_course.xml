@@ -38,32 +38,32 @@
             android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="28dp"
             android:layout_marginTop="28dp"
             android:text="Course Name:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/textView4"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
-            android:layout_marginTop="29dp"
-            android:text="Status:"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
-
         <Spinner
             android:id="@+id/acStatusSpinner"
-            android:layout_width="279dp"
-            android:layout_height="33dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="270dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="20dp"
             android:gravity="center"
             app:layout_constraintBottom_toBottomOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView4"
             app:layout_constraintVertical_bias="1.0" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="40dp"
+            android:text="Status:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
 
         <TextView
             android:id="@+id/textView5"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-            android:id="@+id/acEndtv"
+            android:id="@+id/acEndTv"
             android:layout_width="273dp"
             android:layout_height="31dp"
             android:layout_marginEnd="17dp"
@@ -92,12 +92,13 @@
             android:id="@+id/acAlertSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="69dp"
+            android:layout_marginEnd="68dp"
             android:checked="false"
             android:text="Alerts"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/textView11" />
+            app:layout_constraintTop_toTopOf="@+id/textView11"
+            app:layout_constraintVertical_bias="0.333" />
 
         <TextView
             android:id="@+id/textView11"
@@ -107,7 +108,7 @@
             android:layout_marginTop="38dp"
             android:text="Notification on date course starts and ends"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acEndtv" />
+            app:layout_constraintTop_toBottomOf="@+id/acEndTv" />
 
         <Button
             android:id="@+id/acSaveBtn"
@@ -119,15 +120,18 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView11" />
 
-        <TextView
+        <EditText
             android:id="@+id/acTitle"
-            android:layout_width="250dp"
-            android:layout_height="22dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="28dp"
-            android:text="Course Title"
-            app:layout_constraintStart_toEndOf="@+id/textView"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:layout_width="233dp"
+            android:layout_height="41dp"
+            android:layout_marginEnd="40dp"
+            android:ems="10"
+            android:hint="Enter Course Title"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toBottomOf="@+id/textView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView"
+            app:layout_constraintVertical_bias="0.545" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

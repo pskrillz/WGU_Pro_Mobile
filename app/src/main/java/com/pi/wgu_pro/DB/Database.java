@@ -34,6 +34,8 @@ public  abstract class Database extends RoomDatabase {
 
      public abstract TermDao termDao();
 
+    public abstract CourseDao courseDao();
+
     public static void destroyInstance(){
         instance = null;
     }

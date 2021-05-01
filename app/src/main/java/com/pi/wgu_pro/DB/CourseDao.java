@@ -1,5 +1,6 @@
 package com.pi.wgu_pro.DB;
 
+import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -9,6 +10,7 @@ import com.pi.wgu_pro.Entities.Course;
 
 import java.util.List;
 
+@Dao
 public interface CourseDao {
 
     @Query("select * from tableCourse")
