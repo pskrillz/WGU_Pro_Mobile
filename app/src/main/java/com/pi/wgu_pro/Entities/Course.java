@@ -3,6 +3,7 @@ package com.pi.wgu_pro.Entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -37,6 +38,7 @@ public class Course {
         this.courseAlert = courseAlert;
     }
 
+    @Ignore
     public Course(int termIdFK, String courseName, Date courseStart, Date courseEnd, String courseStatus, boolean courseAlert) {
         this.termIdFK = termIdFK;
         this.courseName = courseName;
@@ -46,6 +48,7 @@ public class Course {
         this.courseAlert = courseAlert;
     }
 
+    @Ignore
     public Course(){
 
     }

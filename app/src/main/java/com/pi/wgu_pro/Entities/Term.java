@@ -33,6 +33,7 @@ public class Term {
         this.termEnd = termEnd;
     }
 
+    @Ignore
     public Term(){
 
     }
