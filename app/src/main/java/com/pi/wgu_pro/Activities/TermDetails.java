@@ -6,9 +6,11 @@ import android.text.format.DateFormat;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pi.wgu_pro.Adapters.CourseAdapter;
 import com.pi.wgu_pro.DB.Database;
 import com.pi.wgu_pro.Entities.Course;
 import com.pi.wgu_pro.Entities.Term;
@@ -25,7 +27,7 @@ public class TermDetails extends AppCompatActivity {
 
     // view elements
     FloatingActionButton tdAddCourse;
-    RecyclerView rvCourseList;
+    RecyclerView rv;
     TextView tdTitle;
     TextView tdStatus;
     TextView tdStart;
@@ -42,6 +44,7 @@ public class TermDetails extends AppCompatActivity {
         intent = getIntent();
         termId = intent.getIntExtra("termId", -1);
         db = Database.getInstance(getApplicationContext());
+        coursesList = db.courseDao().getTermCourses(termId);
 
         // view elements
         tdTitle = findViewById(R.id.tdTitle);
@@ -49,10 +52,12 @@ public class TermDetails extends AppCompatActivity {
         tdStart = findViewById(R.id.tdStart);
         tdEnd = findViewById(R.id.tdEnd);
         tdAddCourse = findViewById(R.id.tdAddCourse);
+        rv = findViewById(R.id.rvCourseList);
 
         // init
         setupSpecTermDetails();
         // updateCourseRv()
+        initCourseRv();
 
         tdAddCourse.setOnClickListener(v -> {
             Intent intent = new Intent(getApplicationContext(), AddCourse.class);
@@ -73,7 +78,12 @@ public class TermDetails extends AppCompatActivity {
         tdStatus.setText(term.getTermStatus());
         tdStart.setText(startDate);
         tdEnd.setText(endDate);
-
-
     }
+
+    private void initCourseRv(){
+        CourseAdapter adapter = new CourseAdapter(coursesList, this);
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+    }
+
 }

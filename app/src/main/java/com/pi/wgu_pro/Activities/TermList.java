@@ -36,11 +36,7 @@ public class TermList extends AppCompatActivity {
         getSupportActionBar().setTitle("Terms List");
         db = Database.getInstance(getApplicationContext());
 
-//        // sample data
-//        termTitles.add("asdfgsaf");
-//        termTitles.add("assdaf 2");
 
-        // different list attempt
         termList = db.termDao().getAllTerms();
         System.out.println(termList);
 
@@ -56,7 +52,7 @@ public class TermList extends AppCompatActivity {
            }
        });
 
-    }
+    } // end onCreate()
 
     private void initRecyclerView(){
         RecyclerView rv = findViewById(R.id.rvTerms);

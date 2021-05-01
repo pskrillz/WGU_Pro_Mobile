@@ -34,14 +34,14 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.term_item, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.rv_item, parent, false);
         ViewHolder viewHolder = new ViewHolder(view);
         return viewHolder;
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.termTitle.setText(termList.get(position).getTermName());
+        holder.title.setText(termList.get(position).getTermName());
 
         holder.parentLayout.setOnClickListener(v -> {
             Log.d("test", "onClick: " + termList.get(position));
@@ -75,12 +75,12 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         ConstraintLayout parentLayout;
-        TextView termTitle;
+        TextView title;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             parentLayout = itemView.findViewById(R.id.parent_layout);
-            termTitle = itemView.findViewById(R.id.tvTermTitle);
+            title = itemView.findViewById(R.id.tvTitle);
         }
     }
 }

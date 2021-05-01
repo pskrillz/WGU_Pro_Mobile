@@ -4,14 +4,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="100dp"
+    android:layout_height="60dp"
     android:padding="15dp"
     android:id="@+id/parent_layout">
 
     <TextView
-        android:id="@+id/tvTermTitle"
-        android:layout_width="282dp"
-        android:layout_height="33dp"
+        android:id="@+id/tvTitle"
+        android:layout_width="284dp"
+        android:layout_height="42dp"
         android:text="Term Title"
         android:textColor="#000000"
         android:textSize="25sp"
