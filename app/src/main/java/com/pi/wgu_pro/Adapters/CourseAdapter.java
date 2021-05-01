@@ -2,6 +2,7 @@ package com.pi.wgu_pro.Adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pi.wgu_pro.Activities.CourseDetails;
 import com.pi.wgu_pro.Entities.Course;
 import com.pi.wgu_pro.R;
 
@@ -45,21 +47,10 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
             Log.d("test", "onClick: " + coursesList.get(position));
 
             // TODO: trigger the form for new term info.
-//            int termId = termList.get(position).getTermId();
-//            String termTitle = termList.get(position).getTermName();
-//            String termStatus = termList.get(position).getTermStatus();
-//            Date start = termList.get(position).getTermStart();
-//            Date end = termList.get(position).getTermEnd();
-//            Term term = new Term(termId, termTitle, termStatus, start, end);
-//
-//            Intent intent = new Intent(this.ctx, TermDetails.class);
-//            intent.putExtra("termId", term.getTermId());
-//            intent.putExtra("termTitle", term.getTermName());
-//            intent.putExtra("termStatus", term.getTermStatus());
-//            intent.putExtra("start", term.getTermStart());
-//            intent.putExtra("end", term.getTermEnd());
-//            this.ctx.startActivity(intent);
-
+            int courseId = coursesList.get(position).getCourseIdPK();
+            Intent intent = new Intent(this.ctx, CourseDetails.class);
+            intent.putExtra("courseId", courseId);
+            this.ctx.startActivity(intent);
 
         });
 

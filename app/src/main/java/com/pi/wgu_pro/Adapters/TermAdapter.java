@@ -16,7 +16,6 @@ import com.pi.wgu_pro.Activities.TermDetails;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 
-import java.util.Date;
 import java.util.List;
 
 public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
@@ -48,18 +47,14 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
             // TODO: trigger the form for new term info.
             int termId = termList.get(position).getTermId();
-            String termTitle = termList.get(position).getTermName();
-            String termStatus = termList.get(position).getTermStatus();
-            Date start = termList.get(position).getTermStart();
-            Date end = termList.get(position).getTermEnd();
-            Term term = new Term(termId, termTitle, termStatus, start, end);
+//            String termTitle = termList.get(position).getTermName();
+//            String termStatus = termList.get(position).getTermStatus();
+//            Date start = termList.get(position).getTermStart();
+//            Date end = termList.get(position).getTermEnd();
+//            Term term = new Term(termId, termTitle, termStatus, start, end);
 
             Intent intent = new Intent(this.ctx, TermDetails.class);
-            intent.putExtra("termId", term.getTermId());
-            intent.putExtra("termTitle", term.getTermName());
-            intent.putExtra("termStatus", term.getTermStatus());
-            intent.putExtra("start", term.getTermStart());
-            intent.putExtra("end", term.getTermEnd());
+            intent.putExtra("termId", termId);
             this.ctx.startActivity(intent);
 
 
