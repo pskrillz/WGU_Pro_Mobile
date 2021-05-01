@@ -8,13 +8,13 @@ import androidx.room.TypeConverters;
 
 import com.pi.wgu_pro.Entities.Assessment;
 import com.pi.wgu_pro.Entities.Course;
-import com.pi.wgu_pro.Entities.CourseInstructor;
+import com.pi.wgu_pro.Entities.Instructor;
 import com.pi.wgu_pro.Entities.Note;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.Utils.DateConverter;
 
 @androidx.room.Database(version = 5, exportSchema = false,
-        entities = {Assessment.class, Course.class, CourseInstructor.class, Note.class, Term.class})
+        entities = {Assessment.class, Course.class, Instructor.class, Note.class, Term.class})
 @TypeConverters({DateConverter.class})
 public  abstract class Database extends RoomDatabase {
 

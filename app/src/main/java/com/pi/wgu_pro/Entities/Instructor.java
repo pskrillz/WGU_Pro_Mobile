@@ -16,7 +16,7 @@ import static androidx.room.ForeignKey.CASCADE;
                 onDelete = CASCADE
         )
 )
-public class CourseInstructor {
+public class Instructor {
     @PrimaryKey(autoGenerate = true) private int instructorPK;
     @ColumnInfo() private int courseIdFK;
     @ColumnInfo() private String name;

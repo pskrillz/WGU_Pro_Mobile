@@ -5,28 +5,32 @@ import androidx.room.Insert;
 import androidx.room.Query;
 import androidx.room.Update;
 
-import com.pi.wgu_pro.Entities.Term;
+import com.pi.wgu_pro.Entities.Course;
 
 import java.util.List;
 
 public interface CourseDao {
 
-    @Query("select * from AssessmentTable")
-    List<Term> getAllTerms();
+    @Query("select * from tableCourse")
+    List<Course> getAllCourses();
+
+    // get a specific term's list of courses
+    @Query("select * from tableCourse where termIdFK = :termId")
+    List<Course> getTermCourses(int termId);
 
     //get specific
-    @Query("select * from TermTable where termId = :termId")
-    Term getSpecTerm(int termId);
+    @Query("select * from tableCourse where courseIdPK = :courseId")
+    Course getSpecCourse(int courseId);
 
     // add term/save
     @Insert
-    void insertTerm(Term term);
+    void insertCourse(Course course);
 
     // update
     @Update
-    void updateTerm(Term term);
+    void updateCourse(Course course);
 
     // delete
     @Delete
-    void deleteTerm(Term term);
+    void deleteCourse(Course course);
 }
