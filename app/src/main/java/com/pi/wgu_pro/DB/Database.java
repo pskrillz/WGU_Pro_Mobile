@@ -32,9 +32,15 @@ public  abstract class Database extends RoomDatabase {
         return instance;
     }
 
-     public abstract TermDao termDao();
+    public abstract TermDao termDao();
 
     public abstract CourseDao courseDao();
+
+    public abstract AssessmentDao assessmentDao();
+
+    public abstract InstructorDao instructorDao();
+
+    public abstract NoteDao noteDao();
 
     public static void destroyInstance(){
         instance = null;

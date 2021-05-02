@@ -48,9 +48,9 @@ public class TermDetails extends AppCompatActivity {
 
         // view elements
         tdTitle = findViewById(R.id.cdTitle);
-        tdStatus = findViewById(R.id.tdStatus);
-        tdStart = findViewById(R.id.tdStart);
-        tdEnd = findViewById(R.id.tdEnd);
+        tdStatus = findViewById(R.id.cdStatus);
+        tdStart = findViewById(R.id.cdStart);
+        tdEnd = findViewById(R.id.cdEnd);
         tdAddCourse = findViewById(R.id.tdAddCourse);
         rv = findViewById(R.id.rvAssessList);
 

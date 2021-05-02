@@ -46,7 +46,6 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
         holder.parentLayout.setOnClickListener(v -> {
             Log.d("test", "onClick: " + coursesList.get(position));
 
-            // TODO: trigger the form for new term info.
             int courseId = coursesList.get(position).getCourseIdPK();
             Intent intent = new Intent(this.ctx, CourseDetails.class);
             intent.putExtra("courseId", courseId);

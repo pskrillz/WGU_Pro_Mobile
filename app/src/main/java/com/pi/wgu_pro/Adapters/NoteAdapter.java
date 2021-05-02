@@ -1,7 +1,7 @@
 package com.pi.wgu_pro.Adapters;
 
+
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,21 +12,20 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.pi.wgu_pro.Activities.TermDetails;
-import com.pi.wgu_pro.Entities.Term;
+import com.pi.wgu_pro.Entities.Note;
 import com.pi.wgu_pro.R;
 
 import java.util.List;
 
-public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
-    private static final String TAG = "TermAdapter";
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
+    private static final String TAG = "NoteAdapter";
 
-   // private ArrayList<String> termTitles = new ArrayList<>();
-    private List<Term> termList;
+    // private ArrayList<String> termTitles = new ArrayList<>();
+    private List<Note> noteList;
     private Context ctx;
 
-    public TermAdapter(List<Term> termList, Context ctx) {
-        this.termList = termList;
+    public NoteAdapter(List<Note> noteList, Context ctx) {
+        this.noteList = noteList;
         this.ctx = ctx;
     }
 
@@ -40,16 +39,16 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.title.setText(termList.get(position).getTermName());
+        holder.title.setText(noteList.get(position).getNoteTitle());
 
         holder.parentLayout.setOnClickListener(v -> {
-            Log.d("test", "onClick: " + termList.get(position));
+            Log.d("test", "onClick: " + noteList.get(position));
 
-            int termId = termList.get(position).getTermId();
-            Intent intent = new Intent(this.ctx, TermDetails.class);
-            intent.putExtra("termId", termId);
-            this.ctx.startActivity(intent);
-
+            // TODO: Create Detailed Note View
+//            int noteId = noteList.get(position).getNoteId();
+//             Intent intent = new Intent(this.ctx, CourseDetails.class);
+//            intent.putExtra("noteId", noteId);
+//            this.ctx.startActivity(intent);
 
         });
 
@@ -57,7 +56,7 @@ public class TermAdapter extends RecyclerView.Adapter<TermAdapter.ViewHolder>{
 
     @Override
     public int getItemCount() {
-        return termList.size();
+        return noteList.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{

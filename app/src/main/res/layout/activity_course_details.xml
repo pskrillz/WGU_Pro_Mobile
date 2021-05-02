@@ -11,22 +11,12 @@
         android:layout_height="wrap_content"
         tools:context=".Activity.TermDetails">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvNotesList"
-            android:layout_width="362dp"
-            android:layout_height="113dp"
-            android:layout_marginTop="12dp"
-            android:background="#ECF5FF"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.489"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView10" />
-
         <TextView
             android:id="@+id/textView10"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="8dp"
             android:background="#1A1485D5"
             android:gravity="center"
@@ -35,81 +25,79 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="360dp" />
+            app:layout_constraintTop_toBottomOf="@+id/rvAssessList" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvNotesList"
+            android:layout_width="356dp"
+            android:layout_height="157dp"
+            android:layout_marginTop="12dp"
+            android:background="#ECF5FF"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView10" />
 
         <TextView
             android:id="@+id/textView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="32dp"
+            android:layout_marginStart="84dp"
             android:layout_marginTop="24dp"
-            android:text="Course Name:"
+            android:text="Course:"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="15sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/tdStart"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
-            android:layout_marginEnd="67dp"
-            android:text="No Data"
-            app:layout_constraintBottom_toBottomOf="@+id/textView7"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toEndOf="@+id/textView7"
-            app:layout_constraintTop_toTopOf="@+id/textView7"
-            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView7"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="56dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginBottom="5dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginTop="16dp"
             android:text="Start Date:"
-            app:layout_constraintBottom_toTopOf="@+id/textView9"
-            app:layout_constraintStart_toEndOf="@+id/tdStatus"
+            app:layout_constraintStart_toEndOf="@+id/cdStatus"
             app:layout_constraintTop_toBottomOf="@+id/cdTitle" />
+
+        <TextView
+            android:id="@+id/cdStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="No Data"
+            app:layout_constraintBottom_toBottomOf="@+id/textView7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView7"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/cdEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="48dp"
+            android:text="No Data"
+            app:layout_constraintBottom_toBottomOf="@+id/textView9"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/textView9"
+            app:layout_constraintVertical_bias="1.0" />
+
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="208dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="72dp"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="20dp"
             android:text="End Date:"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/cdInstructorBtn"
             app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
         <TextView
-            android:id="@+id/tdEnd"
+            android:id="@+id/cdStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="28dp"
-            android:text="No Data"
-            app:layout_constraintBottom_toBottomOf="@+id/textView9"
-            app:layout_constraintStart_toEndOf="@+id/textView9"
-            app:layout_constraintTop_toTopOf="@+id/textView9"
-            app:layout_constraintVertical_bias="0.0" />
-
-        <TextView
-            android:id="@+id/textView8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Status:"
-            tools:layout_editor_absoluteX="32dp"
-            tools:layout_editor_absoluteY="66dp" />
-
-        <TextView
-            android:id="@+id/tdStatus"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="8dp"
             android:text="No Data"
             app:layout_constraintBottom_toBottomOf="@+id/textView8"
             app:layout_constraintStart_toEndOf="@+id/textView8"
@@ -117,41 +105,114 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <TextView
+            android:id="@+id/textView8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Status:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="16dp"
+            android:text="Instructor:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView8" />
+
+        <ImageButton
+            android:id="@+id/cdInstructorBtn"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_marginStart="12dp"
+            android:background="#C52B2B"
+            app:layout_constraintBottom_toBottomOf="@+id/textView12"
+            app:layout_constraintStart_toEndOf="@+id/textView12"
+            app:layout_constraintTop_toTopOf="@+id/textView12"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_baseline_person_24" />
+
+        <TextView
             android:id="@+id/cdTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="18dp"
-            android:layout_marginLeft="18dp"
+            android:layout_marginStart="12dp"
             android:text="No Data"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            app:layout_constraintBottom_toBottomOf="@+id/textView2"
             app:layout_constraintStart_toEndOf="@+id/textView2"
-            app:layout_constraintTop_toTopOf="@+id/textView2" />
-
+            app:layout_constraintTop_toTopOf="@+id/textView2"
+            app:layout_constraintVertical_bias="0.8" />
 
         <TextView
             android:id="@+id/textView3"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
+            android:layout_marginTop="132dp"
             android:layout_marginEnd="8dp"
             android:background="#1A1485D5"
             android:gravity="center"
             android:text="Assessments"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.50"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="184dp" />
+            app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAssessList"
-            android:layout_width="362dp"
-            android:layout_height="113dp"
-            android:layout_marginTop="11dp"
+            android:layout_width="354dp"
+            android:layout_height="136dp"
+            android:layout_marginTop="13dp"
             android:background="#ECF5FF"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.438"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cdAddAssFab"
+            android:layout_width="56dp"
+            android:layout_height="74dp"
+            android:layout_marginTop="80dp"
+            android:clickable="true"
+            android:scaleX=".7"
+            android:scaleY=".7"
+            app:layout_constraintEnd_toEndOf="@+id/rvAssessList"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/rvAssessList"
+            app:layout_constraintTop_toTopOf="@+id/rvAssessList"
+            app:srcCompat="@drawable/ic_baseline_add_24" />
+
+        <Switch
+            android:id="@+id/cdAlertSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="88dp"
+            android:layout_marginBottom="16dp"
+            android:text="Alerts"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cdAddNoteFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="100dp"
+            android:clickable="true"
+            android:scaleX=".7"
+            android:scaleY=".7"
+            app:backgroundTint="#FFEB3B"
+            app:layout_constraintEnd_toEndOf="@+id/rvNotesList"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/rvNotesList"
+            app:layout_constraintTop_toTopOf="@+id/rvNotesList"
+            app:srcCompat="@drawable/ic_baseline_note_add_24" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

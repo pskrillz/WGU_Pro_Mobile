@@ -78,7 +78,7 @@ public class Course {
         return courseStatus;
     }
 
-    public boolean isCourseAlert() {
+    public boolean getCourseAlert() {
         return courseAlert;
     }
 
