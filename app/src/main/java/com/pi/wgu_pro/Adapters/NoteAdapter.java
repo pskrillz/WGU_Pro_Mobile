@@ -2,6 +2,7 @@ package com.pi.wgu_pro.Adapters;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.pi.wgu_pro.Activities.NoteDetails;
 import com.pi.wgu_pro.Entities.Note;
 import com.pi.wgu_pro.R;
 
@@ -45,10 +47,10 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
             Log.d("test", "onClick: " + noteList.get(position));
 
             // TODO: Create Detailed Note View
-//            int noteId = noteList.get(position).getNoteId();
-//             Intent intent = new Intent(this.ctx, CourseDetails.class);
-//            intent.putExtra("noteId", noteId);
-//            this.ctx.startActivity(intent);
+            int noteId = noteList.get(position).getNoteId();
+             Intent intent = new Intent(this.ctx, NoteDetails.class);
+            intent.putExtra("noteId", noteId);
+            this.ctx.startActivity(intent);
 
         });
 

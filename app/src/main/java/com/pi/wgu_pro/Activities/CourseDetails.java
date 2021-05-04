@@ -75,8 +75,6 @@ public class CourseDetails extends AppCompatActivity {
 
 
 
-
-
     } // onCreate end
 
     public void initCourseDetails(){
