@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.pi.wgu_pro.Adapters.AssessmentAdapter;
 import com.pi.wgu_pro.Adapters.NoteAdapter;
 import com.pi.wgu_pro.DB.Database;
 import com.pi.wgu_pro.Entities.Assessment;
@@ -66,12 +67,22 @@ public class CourseDetails extends AppCompatActivity {
         cdAddAssFab = findViewById(R.id.cdAddAssFab);
         cdAddNoteFab = findViewById(R.id.cdAddNoteFab);
 
+        cdAddAssFab.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), AddAssessment.class);
+            intent.putExtra("courseId", courseId);
+            startActivity(intent);
+        });
+
+        cdAddNoteFab.setOnClickListener(v -> {
+            Intent intent = new Intent(getApplicationContext(), AddNote.class);
+            intent.putExtra("courseId", courseId);
+            startActivity(intent);
+        });
+
         // function calls
         initCourseDetails();
         initNoteRv();
-
-        // TODO init assessment recycler on course details;
-      //  initAssessmentRv();
+        initAssessmentRv();
 
 
 
@@ -97,12 +108,12 @@ public class CourseDetails extends AppCompatActivity {
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
 
-//    public void initAssessmentRv(){
-//        RecyclerView rv = rvAssessList;
-//        AssessmentAdapter adapter = new AssessmentAdapter(assessmentList, this);
-//        rv.setAdapter(adapter);
-//        rv.setLayoutManager(new LinearLayoutManager(this));
-//    }
+    public void initAssessmentRv(){
+        RecyclerView rv = rvAssessList;
+        AssessmentAdapter adapter = new AssessmentAdapter(assessmentList, this);
+        rv.setAdapter(adapter);
+        rv.setLayoutManager(new LinearLayoutManager(this));
+    }
 
 
 

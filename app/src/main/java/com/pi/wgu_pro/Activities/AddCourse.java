@@ -60,14 +60,14 @@ public class AddCourse extends AppCompatActivity implements DatePickerDialog.OnD
         termId = intent.getIntExtra("termId", -1);
 
         acTitle = findViewById(R.id.acTitle);
-        acStatusSpinner = findViewById(R.id.acStatusSpinner);
-        acStartTv = findViewById(R.id.acStartTv);
-        acEndTv = findViewById(R.id.acEndTv);
-        acAlertSwitch = findViewById(R.id.acAlertSwitch);
-        acSaveButton = findViewById(R.id.acSaveBtn);
+        acStatusSpinner = findViewById(R.id.aaTypeSpinner);
+        acStartTv = findViewById(R.id.aaStartTv);
+        acEndTv = findViewById(R.id.aaEndTv);
+        acAlertSwitch = findViewById(R.id.aaAlertSwitch);
+        acSaveButton = findViewById(R.id.aaSaveBtn);
 
         // set up drop down
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.course_status_array, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.courseStatusArray, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         acStatusSpinner.setAdapter(adapter);
 
@@ -129,13 +129,13 @@ public class AddCourse extends AppCompatActivity implements DatePickerDialog.OnD
     // setting up date pickers for start and end
     private void initDatePicker() {
         acStartTv.setOnClickListener((View view) ->{
-            pickedDate = findViewById(R.id.acStartTv);
+            pickedDate = findViewById(R.id.aaStartTv);
             DialogFragment datePicker = new DatePickerFragment();
             datePicker.show(getSupportFragmentManager(), "date dialog");
         });
 
         acEndTv.setOnClickListener((View view) ->{
-            pickedDate = findViewById(R.id.acEndTv);
+            pickedDate = findViewById(R.id.aaEndTv);
             DialogFragment datePicker = new DatePickerFragment();
             datePicker.show(getSupportFragmentManager(), "date dialog");
         });

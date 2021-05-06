@@ -55,7 +55,7 @@ public class AddTerm extends AppCompatActivity implements DatePickerDialog.OnDat
         tvEndDate = findViewById(R.id.tvEndDate);
 
         // set up the drop down
-        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.term_status_array, android.R.layout.simple_spinner_dropdown_item);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.termStatusArray, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerStatus.setAdapter(adapter);
 

@@ -3,13 +3,21 @@
     <string name="welcome_to_wgu_pro">Welcome to WGU Pro!</string>
     <string name="title_activity_term_list">Term List</string>
     <!-- Strings used for fragments for navigation -->
-
-    <string-array name="term_status_array">
+    <string-array name="assessmentStatusArray">
+        <item>In-Progress</item>
+        <item>Passed</item>
+        <item>Failed</item>
+    </string-array>
+    <string-array name="assessmentTypeArray">
+        <item>Performance</item>
+        <item>Objective</item>
+    </string-array>
+    <string-array name="termStatusArray">
         <item>In-Progress</item>
         <item>Completed</item>
         <item>Not Enrolled</item>
     </string-array>
-    <string-array name="course_status_array">
+    <string-array name="courseStatusArray">
         <item>In-Progress</item>
         <item>Completed</item>
         <item>Planned</item>

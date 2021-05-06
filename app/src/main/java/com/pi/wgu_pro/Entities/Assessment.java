@@ -4,6 +4,7 @@ package com.pi.wgu_pro.Entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Date;
@@ -27,6 +28,35 @@ public class Assessment {
     @ColumnInfo() private Date assessmentStart;
     @ColumnInfo() private Date assessmentEnd;
     @ColumnInfo() private boolean assessmentAlert;
+
+    @Ignore
+    public Assessment(int assessmentId, int courseIdFK, String assessmentType,
+                      String assessmentTitle, Date assessmentStart,
+                      Date assessmentEnd, boolean assessmentAlert) {
+        this.assessmentId = assessmentId;
+        this.courseIdFK = courseIdFK;
+        this.assessmentType = assessmentType;
+        this.assessmentTitle = assessmentTitle;
+        this.assessmentStart = assessmentStart;
+        this.assessmentEnd = assessmentEnd;
+        this.assessmentAlert = assessmentAlert;
+    }
+
+    public Assessment(int courseIdFK, String assessmentType,
+                      String assessmentTitle, Date assessmentStart,
+                      Date assessmentEnd, boolean assessmentAlert) {
+        this.assessmentId = assessmentId;
+        this.courseIdFK = courseIdFK;
+        this.assessmentType = assessmentType;
+        this.assessmentTitle = assessmentTitle;
+        this.assessmentStart = assessmentStart;
+        this.assessmentEnd = assessmentEnd;
+        this.assessmentAlert = assessmentAlert;
+    }
+
+    @Ignore
+    public Assessment() {
+    }
 
     public int getAssessmentId() {
         return assessmentId;

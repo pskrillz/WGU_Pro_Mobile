@@ -3,6 +3,7 @@ package com.pi.wgu_pro.Entities;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.ForeignKey;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import static androidx.room.ForeignKey.CASCADE;
@@ -21,6 +22,24 @@ public class Note {
     @ColumnInfo() private int courseIdFK;
     @ColumnInfo() private String noteTitle;
     @ColumnInfo() private String noteContent;
+
+    @Ignore
+    public Note(int noteId, int courseIdFK, String noteTitle, String noteContent) {
+        this.noteId = noteId;
+        this.courseIdFK = courseIdFK;
+        this.noteTitle = noteTitle;
+        this.noteContent = noteContent;
+    }
+
+    public Note(int courseIdFK, String noteTitle, String noteContent) {
+        this.courseIdFK = courseIdFK;
+        this.noteTitle = noteTitle;
+        this.noteContent = noteContent;
+    }
+
+    @Ignore
+    public Note() {
+    }
 
     public int getNoteId() {
         return noteId;

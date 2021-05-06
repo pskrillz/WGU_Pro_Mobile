@@ -46,10 +46,11 @@ public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.ViewHolder>{
         holder.parentLayout.setOnClickListener(v -> {
             Log.d("test", "onClick: " + noteList.get(position));
 
-            // TODO: Create Detailed Note View
+            int courseId = noteList.get(position).getCourseIdFK();
             int noteId = noteList.get(position).getNoteId();
              Intent intent = new Intent(this.ctx, NoteDetails.class);
             intent.putExtra("noteId", noteId);
+            intent.putExtra("courseId", courseId);
             this.ctx.startActivity(intent);
 
         });

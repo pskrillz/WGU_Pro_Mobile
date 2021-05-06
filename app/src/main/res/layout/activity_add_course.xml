@@ -12,7 +12,7 @@
         tools:context=".Activity.AddCourse">
 
         <TextView
-            android:id="@+id/acStartTv"
+            android:id="@+id/aaStartTv"
             android:layout_width="267dp"
             android:layout_height="24dp"
             android:layout_marginEnd="23dp"
@@ -45,7 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <Spinner
-            android:id="@+id/acStatusSpinner"
+            android:id="@+id/aaTypeSpinner"
             android:layout_width="270dp"
             android:layout_height="32dp"
             android:layout_marginEnd="20dp"
@@ -76,7 +76,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
         <TextView
-            android:id="@+id/acEndTv"
+            android:id="@+id/aaEndTv"
             android:layout_width="273dp"
             android:layout_height="31dp"
             android:layout_marginEnd="17dp"
@@ -89,7 +89,7 @@
             app:layout_constraintTop_toTopOf="@+id/textView6" />
 
         <Switch
-            android:id="@+id/acAlertSwitch"
+            android:id="@+id/aaAlertSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="68dp"
@@ -108,10 +108,10 @@
             android:layout_marginTop="38dp"
             android:text="Notification on date course starts and ends"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/acEndTv" />
+            app:layout_constraintTop_toBottomOf="@+id/aaEndTv" />
 
         <Button
-            android:id="@+id/acSaveBtn"
+            android:id="@+id/aaSaveBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="52dp"

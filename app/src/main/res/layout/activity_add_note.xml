@@ -7,7 +7,7 @@
     tools:context=".Activities.AddNote">
 
     <EditText
-        android:id="@+id/ndTitle"
+        android:id="@+id/anTitle"
         android:layout_width="245dp"
         android:layout_height="43dp"
         android:layout_marginTop="16dp"
@@ -20,17 +20,17 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/ndSaveBtn"
+        android:id="@+id/anSaveBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="160dp"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ndBody" />
+        app:layout_constraintTop_toBottomOf="@+id/anBody" />
 
     <EditText
-        android:id="@+id/ndBody"
+        android:id="@+id/anBody"
         android:layout_width="322dp"
         android:layout_height="237dp"
         android:layout_marginTop="24dp"
@@ -41,6 +41,6 @@
         android:hint="Click to start typing.."
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ndTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/anTitle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
