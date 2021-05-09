@@ -3,6 +3,9 @@ package com.pi.wgu_pro.Activities;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -14,6 +17,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
@@ -175,6 +179,36 @@ public class AssessmentDetails extends AppCompatActivity implements DatePickerDi
         String currentDateString = month + "/" + dayOfMonth + "/" + year;
         pickedDate.setText(currentDateString);
 
+    }
+
+
+
+    // menu methods
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.menu_assessment_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.adDeleteBtn:
+                db.assessmentDao().deleteAssessment(selAssessment);
+                Toast.makeText(this, "Deleted " + selAssessment.getAssessmentTitle() , Toast.LENGTH_SHORT).show();
+                openCourseDetail();
+                return true;
+
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void openCourseDetail(){
+        Intent newIntent = new Intent(getApplicationContext(), CourseDetails.class);
+        newIntent.putExtra("courseId", courseId);
+        startActivity(newIntent);
     }
 
 
