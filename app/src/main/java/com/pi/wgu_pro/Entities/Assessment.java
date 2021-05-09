@@ -82,7 +82,7 @@ public class Assessment {
         return assessmentEnd;
     }
 
-    public boolean isAssessmentAlert() {
+    public boolean getAssessmentAlert() {
         return assessmentAlert;
     }
 

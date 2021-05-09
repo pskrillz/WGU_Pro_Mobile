@@ -47,8 +47,10 @@ public class AssessmentAdapter extends RecyclerView.Adapter<AssessmentAdapter.Vi
 
             // TODO: Create Detailed Note View
             int assessmentId = assessmentList.get(position).getAssessmentId();
+            int courseId = assessmentList.get(position).getCourseIdFK();
              Intent intent = new Intent(this.ctx, AssessmentDetails.class);
              intent.putExtra("assessmentId", assessmentId);
+             intent.putExtra("courseId", courseId);
              this.ctx.startActivity(intent);
 
         });

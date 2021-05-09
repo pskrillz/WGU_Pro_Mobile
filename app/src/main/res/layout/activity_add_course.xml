@@ -92,21 +92,21 @@
             android:id="@+id/aaAlertSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="68dp"
+            android:layout_marginEnd="96dp"
             android:checked="false"
             android:text="Alerts"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView11"
-            app:layout_constraintVertical_bias="0.333" />
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="179dp"
-            android:layout_height="54dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="38dp"
-            android:text="Notification on date course starts and ends"
+            android:layout_width="174dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="40dp"
+            android:text="Start and end reminders:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/aaEndTv" />
 

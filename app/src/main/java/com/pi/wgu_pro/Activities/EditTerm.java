@@ -73,7 +73,7 @@ public class EditTerm extends AppCompatActivity implements DatePickerDialog.OnDa
         spinnerStatus.setAdapter(adapter);
 
         initDatePicker();
-        initTermValues();
+
 
         // get spinner value
         spinnerStatus.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -100,6 +100,8 @@ public class EditTerm extends AppCompatActivity implements DatePickerDialog.OnDa
             }
         });
 
+
+        initTermValues();
     } // end onCreate
 
     public void initTermValues(){

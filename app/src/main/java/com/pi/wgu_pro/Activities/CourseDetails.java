@@ -152,6 +152,7 @@ public class CourseDetails extends AppCompatActivity {
     public void openEditCourse(){
         Intent intent = new Intent(getApplicationContext(), EditCourse.class);
         intent.putExtra("courseId", courseId);
+        intent.putExtra("termId", termId);
         startActivity(intent);
     }
 
