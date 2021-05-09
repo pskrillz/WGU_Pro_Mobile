@@ -107,8 +107,15 @@ public class TermDetails extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.tdDeleteBtn:
-                Toast.makeText(this, "Deleted " + selTerm.getTermName() , Toast.LENGTH_SHORT).show();
+                // validation for deleting a term that has courses.
+                if(db.courseDao().getTermCourses(termId) != null){
+                    Toast.makeText(this, "Cannot delete term that contains courses" , Toast.LENGTH_SHORT).show();
+                    return false;
+                }
+
                 db.termDao().deleteTerm(selTerm);
+                Toast.makeText(this, "Deleted " + selTerm.getTermName() , Toast.LENGTH_SHORT).show();
+                openTermList();
                 return true;
             case R.id.tdEditBtn:
                 openEditTerm();
@@ -121,6 +128,11 @@ public class TermDetails extends AppCompatActivity {
     public void openEditTerm(){
         Intent intent = new Intent(getApplicationContext(), EditTerm.class);
         intent.putExtra("termId", termId);
+        startActivity(intent);
+    }
+
+    public void openTermList(){
+        Intent intent = new Intent(getApplicationContext(), TermList.class);
         startActivity(intent);
     }
 

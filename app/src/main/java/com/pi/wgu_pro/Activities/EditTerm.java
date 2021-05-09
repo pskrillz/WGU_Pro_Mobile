@@ -20,6 +20,7 @@ import com.pi.wgu_pro.DB.Database;
 import com.pi.wgu_pro.Entities.Term;
 import com.pi.wgu_pro.R;
 import com.pi.wgu_pro.Utils.DatePickerFragment;
+import com.pi.wgu_pro.Utils.MiscSingleton;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -93,7 +94,8 @@ public class EditTerm extends AppCompatActivity implements DatePickerDialog.OnDa
                 e.printStackTrace();
             }
             if(termAdded == true) {
-                Intent intent = new Intent(getApplicationContext(), TermList.class);
+                Intent intent = new Intent(getApplicationContext(), TermDetails.class);
+                intent.putExtra("termId", termId);
                 startActivity(intent);
             }
         });
@@ -106,8 +108,12 @@ public class EditTerm extends AppCompatActivity implements DatePickerDialog.OnDa
         statusSpinnerValue = selTerm.getTermStatus(); // sets init spinner value
         spinnerStatus.setSelection(((ArrayAdapter<String>)spinnerStatus.getAdapter()).getPosition(selTerm.getTermStatus()));
 
-        tvStartDate.setText(selTerm.getTermStart().toString());
-        tvEndDate.setText(selTerm.getTermEnd().toString());
+        // date conversions using utils
+        String start = MiscSingleton.formatDateStr(selTerm.getTermStart());
+        String end = MiscSingleton.formatDateStr(selTerm.getTermEnd());
+
+        tvStartDate.setText(start);
+        tvEndDate.setText(end);
     }
 
 
@@ -121,6 +127,7 @@ public class EditTerm extends AppCompatActivity implements DatePickerDialog.OnDa
 
         // set the term object to send to db
         Term term = new Term(title, statusSpinnerValue, dateStart, dateEnd);
+        term.setTermId(termId);
         db.termDao().updateTerm(term);
         Toast.makeText(this, title + " has been updated", Toast.LENGTH_SHORT).show();
         termAdded = true;

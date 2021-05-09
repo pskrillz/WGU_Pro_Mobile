@@ -47,8 +47,10 @@ public class CourseAdapter extends RecyclerView.Adapter<CourseAdapter.ViewHolder
             Log.d("test", "onClick: " + coursesList.get(position));
 
             int courseId = coursesList.get(position).getCourseIdPK();
+            int termId = coursesList.get(position).getTermIdFK();
             Intent intent = new Intent(this.ctx, CourseDetails.class);
             intent.putExtra("courseId", courseId);
+            intent.putExtra("termId", termId);
             this.ctx.startActivity(intent);
 
         });

@@ -2,10 +2,15 @@ package com.pi.wgu_pro.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,6 +32,8 @@ public class CourseDetails extends AppCompatActivity {
     Database db;
     Intent intent;
     int courseId;
+    int termId;
+    Course selCourse;
     List<Assessment> assessmentList;
     List<Note> noteList;
 
@@ -52,6 +59,8 @@ public class CourseDetails extends AppCompatActivity {
         db = Database.getInstance(getApplicationContext());
         intent = getIntent();
         courseId = intent.getIntExtra("courseId", -1);
+        termId = intent.getIntExtra("termId", -1);
+        selCourse = db.courseDao().getSpecCourse(courseId);
         assessmentList = db.assessmentDao().getCourseAssessments(courseId);
         noteList = db.noteDao().getCourseNotes(courseId);
 
@@ -116,6 +125,41 @@ public class CourseDetails extends AppCompatActivity {
     }
 
 
+    // menu methods
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.menu_course_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.cdDeleteBtn:
+                db.courseDao().deleteCourse(selCourse);
+                Toast.makeText(this, "Deleted " + selCourse.getCourseName() , Toast.LENGTH_SHORT).show();
+                openTermDetail();
+                return true;
+            case R.id.cdEditBtn:
+                openEditCourse();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void openEditCourse(){
+        Intent intent = new Intent(getApplicationContext(), EditCourse.class);
+        intent.putExtra("courseId", courseId);
+        startActivity(intent);
+    }
+
+    public void openTermDetail(){
+        Intent intent = new Intent(getApplicationContext(), TermDetails.class);
+        intent.putExtra("termId", termId);
+        startActivity(intent);
+    }
 
 
 
