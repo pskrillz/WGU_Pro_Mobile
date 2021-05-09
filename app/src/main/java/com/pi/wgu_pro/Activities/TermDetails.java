@@ -3,8 +3,13 @@ package com.pi.wgu_pro.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.format.DateFormat;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -23,6 +28,7 @@ public class TermDetails extends AppCompatActivity {
     Intent intent;
     Database db;
     int termId;
+    Term selTerm;
     List<Course> coursesList;
 
     // view elements
@@ -45,6 +51,8 @@ public class TermDetails extends AppCompatActivity {
         termId = intent.getIntExtra("termId", -1);
         db = Database.getInstance(getApplicationContext());
         coursesList = db.courseDao().getTermCourses(termId);
+        selTerm = db.termDao().getSpecTerm(termId);
+
 
         // view elements
         tdTitle = findViewById(R.id.cdTitle);
@@ -65,7 +73,8 @@ public class TermDetails extends AppCompatActivity {
             startActivity(intent);
         });
 
-    }
+    } // end on create
+
 
     private void setupSpecTermDetails() {
         Term term = new Term();
@@ -85,5 +94,37 @@ public class TermDetails extends AppCompatActivity {
         rv.setAdapter(adapter);
         rv.setLayoutManager(new LinearLayoutManager(this));
     }
+
+    // menu methods
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflator = getMenuInflater();
+        inflator.inflate(R.menu.menu_term_details, menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.tdDeleteBtn:
+                Toast.makeText(this, "Deleted " + selTerm.getTermName() , Toast.LENGTH_SHORT).show();
+                db.termDao().deleteTerm(selTerm);
+                return true;
+            case R.id.tdEditBtn:
+                openEditTerm();
+                return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
+    public void openEditTerm(){
+        Intent intent = new Intent(getApplicationContext(), EditTerm.class);
+        intent.putExtra("termId", termId);
+        startActivity(intent);
+    }
+
+
+
 
 }
