@@ -28,7 +28,7 @@ import java.util.Date;
 
 public class AddTerm extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
-    private EditText etTermTitle;
+    private EditText atTermTitle;
     private Spinner spinnerStatus;
     private String statusSpinnerValue;
     private Database db;
@@ -50,7 +50,7 @@ public class AddTerm extends AppCompatActivity implements DatePickerDialog.OnDat
         db = Database.getInstance(getApplicationContext());
         saveTermBtn = findViewById(R.id.saveTermBtn);
         spinnerStatus = findViewById(R.id.spinnerStatus);
-        etTermTitle = findViewById(R.id.etTermTitle);
+        atTermTitle = findViewById(R.id.atTermTitle);
         tvStartDate = findViewById(R.id.tvStartDate);
         tvEndDate = findViewById(R.id.tvEndDate);
 
@@ -91,7 +91,7 @@ public class AddTerm extends AppCompatActivity implements DatePickerDialog.OnDat
 
 
     private void saveTerm() throws ParseException {
-        String title = etTermTitle.getText().toString();
+        String title = atTermTitle.getText().toString();
         String startDate = tvStartDate.getText().toString();
         String endDate = tvEndDate.getText().toString();
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy");

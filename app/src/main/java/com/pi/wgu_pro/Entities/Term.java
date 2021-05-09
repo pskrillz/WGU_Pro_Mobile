@@ -15,7 +15,7 @@ public class Term {
     @ColumnInfo(name = "TermStart") private Date termStart;
     @ColumnInfo(name = "TermEnd") private Date termEnd;
 
-
+    @Ignore
     public Term(int termId, String termName, String termStatus, Date termStart, Date termEnd) {
         this.termId = termId;
         this.termName = termName;
@@ -25,7 +25,6 @@ public class Term {
     }
 
     //overloaded with no id
-    @Ignore
     public Term(String termName, String termStatus, Date termStart, Date termEnd) {
         this.termName = termName;
         this.termStatus = termStatus;
