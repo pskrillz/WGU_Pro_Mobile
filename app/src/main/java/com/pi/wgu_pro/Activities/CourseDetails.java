@@ -93,6 +93,20 @@ public class CourseDetails extends AppCompatActivity {
         initNoteRv();
         initAssessmentRv();
 
+        cdInstructorBtn.setOnClickListener(v -> {
+//            if (db.instructorDao().getCourseInstructors(courseId).isEmpty()) {
+
+                Intent intent = new Intent(getApplicationContext(), AddInstructor.class);
+                intent.putExtra("courseId", courseId);
+                startActivity(intent);
+//            } else {
+//                Intent intent = new Intent(getApplicationContext(), InstructorDetails.class);
+//                intent.putExtra("courseId", courseId);
+//                startActivity(intent);
+//
+//            }
+        });
+
 
 
     } // onCreate end

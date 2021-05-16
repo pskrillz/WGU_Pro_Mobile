@@ -23,6 +23,9 @@ public class Instructor {
     @ColumnInfo() private String phone;
     @ColumnInfo() private String email;
 
+    public Instructor() {
+    }
+
     public int getInstructorPK() {
         return instructorPK;
     }
