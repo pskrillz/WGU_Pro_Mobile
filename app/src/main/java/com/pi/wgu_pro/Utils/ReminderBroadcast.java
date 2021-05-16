@@ -15,11 +15,13 @@ import androidx.core.app.NotificationManagerCompat;
 import com.pi.wgu_pro.R;
 
 public class ReminderBroadcast extends BroadcastReceiver {
+    private static int orderNum = 0;
 
 
 // set notification
     public static void setAlert(Context context, String id, int channelIdNum, long time, String title, String text) {
         AlarmManager alarmManager = (AlarmManager) context.getSystemService(Context.ALARM_SERVICE);
+        orderNum += 1;
 
         Intent intent = new Intent(context, ReminderBroadcast.class);
         intent.putExtra("id", id);
@@ -27,7 +29,7 @@ public class ReminderBroadcast extends BroadcastReceiver {
         intent.putExtra("text", text);
         intent.putExtra("channelIdNum", channelIdNum);
 
-        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, 0, intent, 0);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(context, orderNum, intent, 0);
         alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent);
 
 

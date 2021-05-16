@@ -92,6 +92,13 @@ public class AddAssessment extends AppCompatActivity implements DatePickerDialog
         long eDate = dateEnd.getTime();
         boolean alert = aaAlertSwitch.isChecked();
 
+//    testing alerts code
+//        long timeAtButtonClick = System.currentTimeMillis();
+//        long tenSecondsInMilis = 1000 * 5;
+//        long twentysecs = 1000 * 10;
+//        long both1 = timeAtButtonClick + tenSecondsInMilis;
+//        long both2 = timeAtButtonClick + twentysecs;
+
         // set alerts
         if(alert){
             ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, sDate,
@@ -99,7 +106,6 @@ public class AddAssessment extends AppCompatActivity implements DatePickerDialog
             ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, eDate,
                     "Assessment Today", "Assessment: " + title + " is today, " +
                             "\n did you pass?");
-
         }
 
 

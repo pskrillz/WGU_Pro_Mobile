@@ -16,7 +16,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="24dp"
+            android:layout_marginTop="20dp"
             android:layout_marginEnd="8dp"
             android:background="#1A1485D5"
             android:gravity="center"
@@ -29,14 +29,29 @@
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvNotesList"
-            android:layout_width="356dp"
-            android:layout_height="177dp"
-            android:layout_marginTop="12dp"
+            android:layout_width="367dp"
+            android:layout_height="223dp"
+            android:layout_marginTop="16dp"
             android:background="#ECF5FF"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.509"
+            app:layout_constraintHorizontal_bias="0.401"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView10" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/cdAddNoteFab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="164dp"
+            android:clickable="true"
+            android:scaleX=".7"
+            android:scaleY=".7"
+            app:backgroundTint="#FFEB3B"
+            app:layout_constraintEnd_toEndOf="@+id/rvNotesList"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/rvNotesList"
+            app:layout_constraintTop_toTopOf="@+id/rvNotesList"
+            app:srcCompat="@drawable/ic_baseline_note_add_24" />
 
         <TextView
             android:id="@+id/textView2"
@@ -167,7 +182,7 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvAssessList"
             android:layout_width="354dp"
-            android:layout_height="136dp"
+            android:layout_height="187dp"
             android:layout_marginTop="12dp"
             android:background="#ECF5FF"
             app:layout_constraintEnd_toEndOf="parent"
@@ -179,7 +194,7 @@
             android:id="@+id/cdAddAssFab"
             android:layout_width="56dp"
             android:layout_height="74dp"
-            android:layout_marginTop="80dp"
+            android:layout_marginTop="128dp"
             android:clickable="true"
             android:scaleX=".7"
             android:scaleY=".7"
@@ -188,21 +203,6 @@
             app:layout_constraintStart_toStartOf="@+id/rvAssessList"
             app:layout_constraintTop_toTopOf="@+id/rvAssessList"
             app:srcCompat="@drawable/ic_baseline_add_24" />
-
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/cdAddNoteFab"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="120dp"
-            android:clickable="true"
-            android:scaleX=".7"
-            android:scaleY=".7"
-            app:backgroundTint="#FFEB3B"
-            app:layout_constraintEnd_toEndOf="@+id/rvNotesList"
-            app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="@+id/rvNotesList"
-            app:layout_constraintTop_toTopOf="@+id/rvNotesList"
-            app:srcCompat="@drawable/ic_baseline_note_add_24" />
 
         <TextView
             android:id="@+id/textView16x"

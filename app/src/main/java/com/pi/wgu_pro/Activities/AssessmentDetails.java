@@ -26,10 +26,12 @@ import com.pi.wgu_pro.Entities.Assessment;
 import com.pi.wgu_pro.R;
 import com.pi.wgu_pro.Utils.DatePickerFragment;
 import com.pi.wgu_pro.Utils.MiscSingleton;
+import com.pi.wgu_pro.Utils.ReminderBroadcast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class AssessmentDetails extends AppCompatActivity implements DatePickerDialog.OnDateSetListener{
 
@@ -121,9 +123,25 @@ public class AssessmentDetails extends AppCompatActivity implements DatePickerDi
     private void saveAssessment() throws ParseException {
         selAssessment.setAssessmentTitle(title.getText().toString());
         selAssessment.setAssessmentType(typeSpinnerValue);
-        selAssessment.setAssessmentStart(dateFormatter.parse(start.getText().toString()));
-        selAssessment.setAssessmentEnd(dateFormatter.parse(end.getText().toString()));
+
+        Date startD = dateFormatter.parse(start.getText().toString());
+        selAssessment.setAssessmentStart(startD);
+
+        Date endD = dateFormatter.parse(end.getText().toString());
+        selAssessment.setAssessmentEnd(endD);
+
+        long sDate = startD.getTime();
+        long eDate = endD.getTime();
         selAssessment.setAssessmentAlert(alert.isChecked());
+
+        if(alert.isChecked()){
+            ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, sDate,
+                    "Prepare for Assessment", "Assessment: " + title + " is coming soon");
+            ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, eDate,
+                    "Assessment Today", "Assessment: " + title + " is today, " +
+                            "\n did you pass?");
+        }
+
         db.assessmentDao().updateAssessment(selAssessment);
         assessmentUpdated = true;
     }
