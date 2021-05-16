@@ -21,6 +21,7 @@ import com.pi.wgu_pro.DB.Database;
 import com.pi.wgu_pro.Entities.Assessment;
 import com.pi.wgu_pro.R;
 import com.pi.wgu_pro.Utils.DatePickerFragment;
+import com.pi.wgu_pro.Utils.ReminderBroadcast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -86,7 +87,21 @@ public class AddAssessment extends AppCompatActivity implements DatePickerDialog
         String endDate = aaEndTv.getText().toString();
         Date dateStart = dateFormatter.parse(startDate);
         Date dateEnd = dateFormatter.parse(endDate);
+
+        long sDate = dateStart.getTime();
+        long eDate = dateEnd.getTime();
         boolean alert = aaAlertSwitch.isChecked();
+
+        // set alerts
+        if(alert){
+            ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, sDate,
+                    "Prepare for Assessment", "Assessment: " + title + " is coming soon");
+            ReminderBroadcast.setAlert(this, "assessmentAlerts", 20, eDate,
+                    "Assessment Today", "Assessment: " + title + " is today, " +
+                            "\n did you pass?");
+
+        }
+
 
         // set the term object to send to db
         Assessment assessment = new Assessment(courseId, typeSpinnerValue, title, dateStart,

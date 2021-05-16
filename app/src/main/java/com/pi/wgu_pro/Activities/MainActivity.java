@@ -3,6 +3,7 @@ package com.pi.wgu_pro.Activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,7 +13,7 @@ import com.pi.wgu_pro.Utils.ReminderBroadcast;
 public class MainActivity extends AppCompatActivity {
 
     private Button enterBtn;
-    Button mNotify;
+    ImageButton mNotify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,17 +37,17 @@ public class MainActivity extends AppCompatActivity {
 
 
        mNotify.setOnClickListener(v -> {
-           testNotifiction();
+           testNotification();
        });
 
     } // end on create
 
-    private void testNotifiction() {
+    private void testNotification() {
 
         long timeAtButtonClick = System.currentTimeMillis();
-        long tenSecondsInMilis = 1000 * 5;
+        long tenSecondsInMilis = 1000 * 3;
         ReminderBroadcast.setAlert(this, "alerts", 12,
-                timeAtButtonClick + tenSecondsInMilis, "WOW", "You did it");
+                timeAtButtonClick + tenSecondsInMilis, "Test Alert!", "You did it");
 
     }
 
