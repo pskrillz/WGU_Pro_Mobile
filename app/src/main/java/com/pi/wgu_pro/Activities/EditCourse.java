@@ -55,7 +55,7 @@ public class EditCourse extends AppCompatActivity implements DatePickerDialog.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_course);
-        getSupportActionBar().setTitle("Add Course");
+        getSupportActionBar().setTitle("Edit Course");
 
         //vars
         db = Database.getInstance(getApplicationContext());

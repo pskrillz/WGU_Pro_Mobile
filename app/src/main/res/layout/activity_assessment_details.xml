@@ -49,9 +49,12 @@
             android:id="@+id/adAlertSwitch"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="160dp"
+            android:layout_marginEnd="140dp"
             android:checked="false"
-            android:text="Alerts"
+            android:textAlignment="viewStart"
+            android:textIsSelectable="false"
+            android:textOff="OFF"
+            android:textOn="ON"
             app:layout_constraintBottom_toBottomOf="@+id/textView11"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/textView11"
@@ -59,11 +62,11 @@
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="87dp"
-            android:layout_height="22dp"
+            android:layout_width="136dp"
+            android:layout_height="31dp"
             android:layout_marginStart="20dp"
             android:layout_marginTop="24dp"
-            android:text="Notifications"
+            android:text="Start/End Reminders:"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/adEndTv" />
 
