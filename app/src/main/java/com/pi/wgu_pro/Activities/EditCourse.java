@@ -22,6 +22,7 @@ import com.pi.wgu_pro.Entities.Course;
 import com.pi.wgu_pro.R;
 import com.pi.wgu_pro.Utils.DatePickerFragment;
 import com.pi.wgu_pro.Utils.MiscSingleton;
+import com.pi.wgu_pro.Utils.ReminderBroadcast;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -137,7 +138,19 @@ public class EditCourse extends AppCompatActivity implements DatePickerDialog.On
         dateFormatter = new SimpleDateFormat("MM/dd/yyyy");
         Date dateStart = dateFormatter.parse(startDate);
         Date dateEnd = dateFormatter.parse(endDate);
+
+        long sDate = dateStart.getTime();
+        long eDate = dateEnd.getTime();
         boolean alert = AlertSwitch.isChecked();
+
+
+        if(alert){
+            ReminderBroadcast.setAlert(this, "courseAlerts", 10,
+                    sDate, "Course Start Alert", title + " begins today!" );
+            ReminderBroadcast.setAlert(this, "courseAlerts", 10,
+                    eDate, "Course End Alert", title + " ends today!" );
+
+        }
 
         // set the term object to send to db
         Course course = new Course();

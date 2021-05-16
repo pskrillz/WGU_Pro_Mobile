@@ -2,16 +2,17 @@ package com.pi.wgu_pro.Activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.pi.wgu_pro.R;
+import com.pi.wgu_pro.Utils.ReminderBroadcast;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button enterBtn;
+    Button mNotify;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,18 +23,30 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+
+
+
+        mNotify = findViewById(R.id.mNotify);
         enterBtn = findViewById(R.id.enterBtn);
 
 /**
  * Setting up event handler for button click to switch activity.
  */
-       enterBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
+       enterBtn.setOnClickListener(view -> launchActivity());
 
-                launchActivity();
-            }
-        });
+
+       mNotify.setOnClickListener(v -> {
+           testNotifiction();
+       });
+
+    } // end on create
+
+    private void testNotifiction() {
+
+        long timeAtButtonClick = System.currentTimeMillis();
+        long tenSecondsInMilis = 1000 * 5;
+        ReminderBroadcast.setAlert(this, "alerts", 12,
+                timeAtButtonClick + tenSecondsInMilis, "WOW", "You did it");
 
     }
 
@@ -44,4 +57,5 @@ public class MainActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-}
+
+} // end main class
