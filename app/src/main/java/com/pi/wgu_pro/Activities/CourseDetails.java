@@ -42,6 +42,7 @@ public class CourseDetails extends AppCompatActivity {
     TextView cdStatus;
     TextView cdStart;
     TextView cdEnd;
+    TextView cdAlerts;
     ImageButton cdInstructorBtn;
     Switch cdAlertSwitch;
     RecyclerView rvAssessList;
@@ -70,7 +71,7 @@ public class CourseDetails extends AppCompatActivity {
         cdStart = findViewById(R.id.cdStart);
         cdEnd = findViewById(R.id.cdEnd);
         cdInstructorBtn = findViewById(R.id.cdInstructorBtn);
-        cdAlertSwitch = findViewById(R.id.cdAlertSwitch);
+        cdAlerts = findViewById(R.id.cdAlerts);
         rvAssessList = findViewById(R.id.rvAssessList);
         rvNoteList = findViewById(R.id.rvNotesList);
         cdAddAssFab = findViewById(R.id.cdAddAssFab);
@@ -94,17 +95,9 @@ public class CourseDetails extends AppCompatActivity {
         initAssessmentRv();
 
         cdInstructorBtn.setOnClickListener(v -> {
-//            if (db.instructorDao().getCourseInstructors(courseId).isEmpty()) {
-
                 Intent intent = new Intent(getApplicationContext(), AddInstructor.class);
                 intent.putExtra("courseId", courseId);
                 startActivity(intent);
-//            } else {
-//                Intent intent = new Intent(getApplicationContext(), InstructorDetails.class);
-//                intent.putExtra("courseId", courseId);
-//                startActivity(intent);
-//
-//            }
         });
 
 
@@ -118,9 +111,9 @@ public class CourseDetails extends AppCompatActivity {
         cdStart.setText(MiscSingleton.formatDateStr(course.getCourseStart()));
         cdEnd.setText(MiscSingleton.formatDateStr(course.getCourseEnd()));
         if (course.getCourseAlert()) {
-            cdAlertSwitch.setChecked(true);
+            cdAlerts.setText("ON");
         } else {
-            cdAlertSwitch.setChecked(false);
+            cdAlerts.setText("OFF");
         }
     }
 

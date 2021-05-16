@@ -94,7 +94,8 @@ public class EditCourse extends AppCompatActivity implements DatePickerDialog.On
                 e.printStackTrace();
             }
             if(courseAdded == true) {
-                Intent intent = new Intent(getApplicationContext(), TermDetails.class);
+                Intent intent = new Intent(getApplicationContext(), CourseDetails.class);
+                intent.putExtra("courseId", courseId);
                 intent.putExtra("termId", termId);
                 startActivity(intent);
             }

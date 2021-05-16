@@ -83,6 +83,7 @@ public class AddInstructor extends AppCompatActivity {
         selInstructor.setCourseIdFK(courseId);
         db.instructorDao().updateInstructor(selInstructor);
         Toast.makeText(this, "Instructor Updated", Toast.LENGTH_SHORT).show();
+        backToCourseDetails();
 
     }
 
@@ -95,7 +96,15 @@ public class AddInstructor extends AppCompatActivity {
         db.instructorDao().insertInstructor(newInstructor);
         Toast.makeText(this, "Instructor Added", Toast.LENGTH_SHORT).show();
         aiNotice.setText("Instructor Added");
+        backToCourseDetails();
 
+    }
+
+
+    public void backToCourseDetails(){
+        Intent intent = new Intent(getApplicationContext(), CourseDetails.class);
+        intent.putExtra("courseId", courseId);
+        startActivity(intent);
     }
 
 } // class

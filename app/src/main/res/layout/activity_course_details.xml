@@ -153,7 +153,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="132dp"
+            android:layout_marginTop="128dp"
             android:layout_marginEnd="8dp"
             android:background="#1A1485D5"
             android:gravity="center"
@@ -189,21 +189,11 @@
             app:layout_constraintTop_toTopOf="@+id/rvAssessList"
             app:srcCompat="@drawable/ic_baseline_add_24" />
 
-        <Switch
-            android:id="@+id/cdAlertSwitch"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="88dp"
-            android:layout_marginBottom="16dp"
-            android:text="Alerts"
-            app:layout_constraintBottom_toTopOf="@+id/textView3"
-            app:layout_constraintEnd_toEndOf="parent" />
-
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/cdAddNoteFab"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="120dp"
             android:clickable="true"
             android:scaleX=".7"
             android:scaleY=".7"
@@ -213,6 +203,28 @@
             app:layout_constraintStart_toStartOf="@+id/rvNotesList"
             app:layout_constraintTop_toTopOf="@+id/rvNotesList"
             app:srcCompat="@drawable/ic_baseline_note_add_24" />
+
+        <TextView
+            android:id="@+id/textView16x"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="226dp"
+            android:layout_marginTop="86dp"
+            android:text="Alerts:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cdTitle" />
+
+        <TextView
+            android:id="@+id/cdAlerts"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="4dp"
+            android:layout_marginEnd="98dp"
+            android:layout_marginBottom="21dp"
+            android:text="On/Off"
+            app:layout_constraintBottom_toTopOf="@+id/textView3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/textView16x" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>
