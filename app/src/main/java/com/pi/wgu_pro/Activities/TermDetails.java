@@ -108,7 +108,7 @@ public class TermDetails extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.tdDeleteBtn:
                 // validation for deleting a term that has courses.
-                if(db.courseDao().getTermCourses(termId) != null){
+                if(!(db.courseDao().getTermCourses(termId).isEmpty())){
                     Toast.makeText(this, "Cannot delete term that contains courses" , Toast.LENGTH_SHORT).show();
                     return false;
                 }
